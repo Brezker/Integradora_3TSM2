@@ -1,0 +1,27 @@
+create database cosoalexis;
+\c cosoalexis;
+
+create table USUARIO(
+	id_usuario serial,
+	email varchar(50),
+	pass varchar(50),
+	nom_us varchar(50),
+	app_us varchar(50),
+	apm_us varchar(50),
+
+	//espacio para el cliente
+	num_ext varchar(50), 
+	num_int varchar(50),
+	estado varchar(50),
+	municipio varchar(50),
+	colonia varchar(50),
+	calle varchar(50),
+	cp int
+
+	);
+
+create table TARJETA(
+	no_tarjeta int primary key,
+	cvv int,
+	saldo bigint,
+	foreign key(id_usuario) references USUARIO(id_usuario) on delete cascade on update cascade);
